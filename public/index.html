@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DH ERROR QR</title>
+  <style>
+    body {
+      background:#020617;
+      color:white;
+      font-family:sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .box {
+      text-align:center;
+      background:#0f172a;
+      padding:20px;
+      border-radius:12px;
+    }
+    img {
+      width:250px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Scan QR Code</h2>
+    <div id="qr">Loading...</div>
+  </div>
+
+<script>
+async function loadQR(){
+  const r = await fetch("/qr");
+  const t = await r.text();
+  document.getElementById("qr").innerHTML = t;
+}
+setInterval(loadQR, 3000);
+</script>
+</body>
+</html>
