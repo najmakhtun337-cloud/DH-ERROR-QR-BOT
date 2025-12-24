@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: dh-error-qr-bot
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
